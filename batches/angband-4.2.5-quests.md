@@ -108,3 +108,7 @@ Nightly counterpart files:
 * Does the nightly `quest_check()` change alter behavior for any future multi-kill or non-unique quest definitions, or is it just a cleanup for the current fixed quests?
 * Are there any other quest-linked player-facing strings outside the files listed here, especially in UI messages or help text not covered by the initial grep set?
 * Should the quest artifact area be treated as part of this batch's final adjudication, or only as supporting late-game content context?
+
+## Next Step
+
+Run `gpt-5.5` with medium reasoning for adjudication of the mapped quest claims and the official master/nightly `quest_check()` delta. Produce validated findings or note that no text change is needed.
