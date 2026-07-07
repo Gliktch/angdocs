@@ -1,0 +1,9 @@
+# Local upstream checkouts and patch worktrees.
+/sources/*
+!/sources/README.md
+/worktrees/*
+!/worktrees/README.md
+
+# Local/editor noise.
+.vscode/
+*.log

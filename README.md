@@ -16,5 +16,7 @@ Workspace layout:
 * `findings/`: validated text-vs-code mismatches
 * `patches/`: patch plans, diffs, and upstream notes
 * `references/`: release, nightly, and source-location notes
+* `sources/`: ignored local clones/mirrors of target codebases
+* `worktrees/`: ignored local patch worktrees and per-batch branches
 
 See `AGENTS.md` for standing audit rules.

@@ -59,5 +59,15 @@
 - `findings/`: validated documentation mismatches, one file per finding or tight group of related findings.
 - `patches/`: patch plans, generated diffs, upstream PR notes, and stable-vs-nightly supplemental patch records.
 - `references/`: durable source notes about release tags, hosted nightly SHAs, upstream URLs, and local checkout locations.
+- `sources/`: ignored local clones or mirrors of target codebases. Do not commit upstream source trees here.
+- `worktrees/`: ignored local worktrees or per-batch patch branches. Do not commit upstream source trees here.
 
 Use stable filenames such as `<variant>-<version>-<domain>.md` for batch files and `<variant>-<short-topic>.md` for findings.
+
+## Source Checkout Boundaries
+
+- Keep target game codebases inside ignored `sources/` or `worktrees/` subfolders so Jarvis treats them as implementation detail of `angdocs`, not separate top-level managed projects.
+- Track checkout metadata in `references/checkouts.md`: upstream URL, fork URL if any, local path, release tag/SHA, hosted-nightly SHA or identifier, and intended branch naming.
+- For upstream contributions, make edits in a fork/branch that belongs to the target repo's fork network. Use `angdocs` to store findings and patch notes, not as the PR source repository.
+- Prefer branch names prefixed with `angdocs/`, such as `angdocs/frog-salmiak-spells` or `angdocs/angband-4.2.5-help`.
+- If a local source checkout has uncommitted changes, record whether they are audit scratch, generated artifacts, or intended patch work before switching tasks.
