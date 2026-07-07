@@ -16,6 +16,12 @@
 - Treat hosted nightlies as supplemental patch targets, not separate full audits. Avoid duplicating stable-release work unless the nightly delta changes the relevant code or text.
 - Record the exact variant, upstream URL, release/tag, commit SHA, and any hosted-nightly SHA or identifier used for each audit batch.
 
+## Primary Targets
+
+- Start with FrogComposband `salmiak` plus its relevant nightly/hosted delta.
+- Start with Angband `4.2.5` plus its relevant nightly/hosted delta.
+- For these initial targets, treat the named release/version as the baseline even when a newer official release exists, unless the user updates the target.
+
 ## Audit Method
 
 - Read the player-facing text first and identify concrete claims about mechanics, probabilities, formulas, flags, limits, availability, or side effects.
