@@ -30,6 +30,14 @@
 - Distinguish documentation bugs from code bugs. Do not change mechanics unless the task explicitly asks for code behavior changes.
 - Keep findings traceable: cite the text location, code/data source, observed mismatch, and proposed wording.
 
+## Model Strategy
+
+- Use `gpt-5.4-mini` for economical bulk passes: text inventory, claim extraction, likely code/data source mapping, and first-pass notes.
+- Use `gpt-5.5` with medium reasoning for primary adjudication: deciding whether text is wrong, tracing mechanics across files, and drafting final wording or patches.
+- Escalate to `gpt-5.5` with xhigh reasoning only for hard cases: tangled formulas, inherited flags/effects, ambiguous proc chains, or conflicting stable/nightly behavior.
+- Prefer multiple focused passes over one broad expensive pass. Keep each worker batch narrow enough that references, decisions, and proposed patches can be reviewed.
+- Record model/escalation level in batch notes when it affects confidence or cost.
+
 ## Patch Style
 
 - Make the smallest text change that makes the description true and useful.
@@ -43,3 +51,13 @@
 - Use small audit batches, such as one variant plus one text domain: `frogcomposband spells`, `angband object descriptions`, or `sil-q help files`.
 - Store durable notes, queues, findings, and patch plans in this repo.
 - Jarvis tracks scheduling and task state; this repo stores the audit substance.
+
+## Repository Layout
+
+- `queues/`: standing queues and target lists for variants, text domains, and nightly deltas.
+- `batches/`: per-batch work logs with scope, sources, commands, model/escalation level, and outcome.
+- `findings/`: validated documentation mismatches, one file per finding or tight group of related findings.
+- `patches/`: patch plans, generated diffs, upstream PR notes, and stable-vs-nightly supplemental patch records.
+- `references/`: durable source notes about release tags, hosted nightly SHAs, upstream URLs, and local checkout locations.
+
+Use stable filenames such as `<variant>-<version>-<domain>.md` for batch files and `<variant>-<short-topic>.md` for findings.
